@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<style>
+    .container{
+        width:400px;
+        height:250px;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+        
+        
+    }
+    form {
+        margin: auto;
+        border: 1px solid black;
+        margin: 10px;
+        padding: 2px;
+        border-radius:5px;
+    }
+
+    form label{
+        margin:5px;
+
+    }
+    form input{
+        margin: 5px;
+    }
+    button{
+        margin: 5px;
+    }
+    
+
+</style>
+
+
+<div class="container mt-5">
+
+    <form action="/" method="post">
+
+        <label for="username">Username</label><br />
+        <input type="text" id="username" name="username" placeholder="lütfen kullanıcı adınızı giriniz." /><br />
+        <label for="password">Password</label><br />
+        <input type="password" id="password" name="password"/><br />
+        <button type="submit" class="btn btn-success" >Login</button>
+    </form>
+</div>
+
+
+
+<div class="text-center mt-5">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
