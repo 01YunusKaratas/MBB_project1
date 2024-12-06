@@ -1,0 +1,242 @@
+﻿@{
+    ViewData["TİTLE"] = "Index1";
+}
+@model IEnumerable<MBB_project1.Models.Product>;
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+ 
+  <!-- CSS -->
+    <link rel="stylesheet" href="~/css/Index1.css"> <!-- Dosya yolu değiştirildi -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- "Burası Ürün Ekleme Form başlangıçı" -->
+
+<div class="container">
+    <!--Filtrelemeyi buraya koycaz ve sonucu burada döndericez-->
+    <div class="container filter">
+      <form asp-controller="Home"asp-action="FilterForm" class="row g-3">
+        <div class="col-md-3">
+          <label for="PRODUCT_ID" class="form-label"><strong>PRODUCT_ID</strong></label>
+          <input type="text" class="form-control" name="PRODUCT_ID" id="PRODUCT_ID">
+        </div>
+        <div class="col-md-3">
+          <label for="PRODUCT_NAME" class="form-label"><strong>PRODUCT_NAME</strong></label>
+          <input type="text"class="form-control" name="PRODUCT_NAME" id="PRODUCT_NAME">
+        </div>
+        <div class="col-md-3">
+          <label for="PRODUCT_COUNT" class="form-label"><strong>PRODUCT_COUNT</strong></label>
+          <input type="text" class="form-control" name="PRODUCT_COUNT" id="PRODUCT_COUNT">
+        </div>
+        <div class="col-md-3">
+          <label for="PRODUCT_DEPARTMENT" class="form-label"><strong>PRODUCT_DEPARTMENT</strong></label>
+          <input type="text" class="form-control" name="PRODUCT_DEPARTMENT" id="PRODUCT_DEPARTMENT">
+        </div>
+        <div style="display: flex; justify-content:flex-start;">
+          <button type="submit" class="btn btn-dark col-sm-1"><i class="fa-solid fa-filter"></i></button>
+        </div>
+
+      </form>
+    </div>
+
+    <!--Filtremele işlemleri son kısmı-->
+
+
+
+
+
+  <!-- "Yeni Ürün Ekle" Butonu -->
+  <div id="added" class="col-sm-4 col-md-6 col-lg-9 col-xl-12">
+    <p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
+        <i class="fa fa-plus" aria-hidden="true"></i>Product
+      </button>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Modal Başlangıcı -->
+<div class="modal fade col-sm-4 col-md-6 col-lg-9 col-xl-12" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Yeni Ürün Ekle</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Ürün Ekleme Formu -->
+        <form method="post" asp-controller="Home" asp-action="Added">
+          <div class="form-group mb-3">
+            <label for="PRODUCT_NAME" class="form-label">PRODUCT NAME</label>
+            <input type="text" class="form-control" name="PRODUCT_NAME" id="PRODUCT_NAME" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="PRODUCT_COUNT" class="form-label">PRODUCT COUNT</label>
+            <input type="number" class="form-control" name="PRODUCT_COUNT" id="PRODUCT_COUNT" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="PRODUCT_DEPARTMENT" class="form-label">PRODUCT DEPARTMENT</label>
+            <input type="text" class="form-control" name="PRODUCT_DEPARTMENT" id="PRODUCT_DEPARTMENT" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Ekle</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">İptal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- "Burası Ürün Ekleme Form bitişi" -->
+
+<!--Update formu-->
+<div class="modal fade col-sm-4 col-md-6 col-lg-9 col-xl-12" id="updateProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Ürünü Düzenle</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Ürün Ekleme Formu -->
+       <form method="post" asp-controller="Home" asp-action="Update">
+          <input type="hidden" name="PRODUCT_ID" id="PRODUCT_ID">
+          <div class="form-group mb-3">
+            <label for="PRODUCT_NAME" class="form-label">PRODUCT NAME</label>
+            <input type="text" class="form-control" name="PRODUCT_NAME" id="PRODUCT_NAME" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="PRODUCT_COUNT" class="form-label">PRODUCT COUNT</label>
+            <input type="number" class="form-control" name="PRODUCT_COUNT" id="PRODUCT_COUNT" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="PRODUCT_DEPARTMENT" class="form-label">PRODUCT DEPARTMENT</label>
+            <input type="text" class="form-control" name="PRODUCT_DEPARTMENT" id="PRODUCT_DEPARTMENT" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" >Güncelle</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-dismiss="modal">İptal</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Update Form bitimi-->
+
+<div class="container col-sm-12 " id="form-container">
+  <div class="row">
+      <div class="col-sm-12 table-responsive">
+      <table class="table table-hover">
+    <thead>
+      <tr>
+    
+        <th scope="col">PRODUCT-ID</th>
+        <th scope="col">PRODUCT-NAME</th>
+        <th scope="col">PRODUCT_Count</th>
+        <th scope="col">PRODUCT_DEPARTMENT</th>
+        <th id="colspan2" colspan="2">ACTIONS</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+
+      @{
+          foreach(var product in Model){
+              <tr>
+                  <td>@product.PRODUCT_ID</td>
+                  <td>@product.PRODUCT_NAME</td>
+                  <td>@product.PRODUCT_COUNT</td>
+                  <td>@product.PRODUCT_DEPARTMENT</td>
+                  <td><form method="post" asp-controller="Home" asp-action="Delete">
+                        <input type="hidden" name="PRODUCT_ID" value="@product.PRODUCT_ID" />
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-minus"></i>Delete</button>
+                      </form>
+                 <td>
+                      <form method="post" asp-controller="Home" asp-action="Update">
+                          <input type="hidden" name="PRODUCT_ID" value="@product.PRODUCT_ID">
+                          <button type="button" class="btn btn-primary" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#updateProductModal" 
+                                  data-product-id="@product.PRODUCT_ID"
+                                  data-product-name="@product.PRODUCT_NAME"
+                                  data-product-count="@product.PRODUCT_COUNT"
+                                  data-product-department="@product.PRODUCT_DEPARTMENT">
+                                  <i class="fa fa-refresh" aria-hidden="true"></i>Update
+                          </button>
+                      </form>
+                </td>
+              </tr>
+          }
+      }
+    
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<!--JS kısmı-->
+<script>
+  // Modal açıldığında ürün bilgilerini doldur
+  const updateProductModal = document.getElementById('updateProductModal');
+  updateProductModal.addEventListener('show.bs.modal', function (event) {
+    // Butona eriş
+    const button = event.relatedTarget;
+
+    // Ürün bilgilerini al
+    const productId = button.getAttribute('data-product-id');
+    const productName = button.getAttribute('data-product-name');
+    const productCount = button.getAttribute('data-product-count');
+    const productDepartment = button.getAttribute('data-product-department');
+
+    // Modal içindeki alanlara bilgileri doldur
+    updateProductModal.querySelector('input[name="PRODUCT_ID"]').value = productId;
+    updateProductModal.querySelector('input[name="PRODUCT_NAME"]').value = productName;
+    updateProductModal.querySelector('input[name="PRODUCT_COUNT"]').value = productCount;
+    updateProductModal.querySelector('input[name="PRODUCT_DEPARTMENT"]').value = productDepartment;
+  });
+</script>
+ <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!-- Popper.js ve Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

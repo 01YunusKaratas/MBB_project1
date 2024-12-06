@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/Index.cshtml">
+
+<!--Alertleri gösterme yeri -->
+   @if(ViewBag.message  != null){
+
+        <div class="alert alert-success col-sm-4" role="alert">
+            @ViewBag.message
+        </div>
+
+   }else if (ViewBag.Errors != null) 
+{
+    <div class="alert alert-danger" id="errorAlert" style="text-align: center;" role="alert">
+        @ViewBag.Errors
+    </div>
+    <!--Burada Yeni ögrendiğim Kaç saniye sonra kapanacak mantığını öğrendik.-->
+    <script>
+          setTimeout(function(){
+             var result =document.getElementById('errorAlert');
+           if(result){
+            result.style.display ="none";
+
+           }
+          },2000);
+        </script>
+} 
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form asp-controller="Home" asp-action="Index2">
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+             <label class="form-label" for="USERNAME">Username</label>
+            <input type="USERNAME"  name="USERNAME" id="USERNAME" class="form-control form-control-lg"
+              placeholder="Enter a valid Username" />
+           
+          </div>
+
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label class="form-label" for="PASSWORD">Password</label>
+            <input type="password"  name="PASSWORD" id="PASSWORD" class="form-control form-control-lg"
+              placeholder="Enter password" />
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

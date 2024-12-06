@@ -1,0 +1,131 @@
+
+body {
+    background-color: rgb(182, 198, 204);
+}
+/*Bu altaraftakiler her zaman olmak zorunda çünküeğer herhangi bir modal kullanırsan*/
+.modal-content{
+    background-color: #ffffff !important;
+}
+.modal-backdrop{
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+
+table{
+    background-color:#ccdfe1;
+    
+}
+
+.filter{
+    margin-top: 50px;
+    margin-bottom: 50px;
+   
+    
+}
+.filter input{
+    width: 250px;
+    border-radius: 10px;
+    background-color: white; /* Arka plan rengi beyaz */
+    border: 1px solid #ccc;  /* Kenarlık rengi */
+    padding: 5px;             /* İç boşluk */
+    color: black;   
+}
+#added{
+    margin-left:10px;
+}
+#colspan2{
+    text-align: center;
+}
+
+thead{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+/* Tablonun genel stilini iyileştirme */
+table {
+    background-color: #f4f8f9; /* Hafif gri arka plan */
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Hafif gölge */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Başlık hücreleri için stil */
+thead th {
+    background-color: #5a9aa0; /* Başlık arka plan rengi */
+    color: rgb(40, 21, 21); /* Metin rengi */
+    text-align: center;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase; /* Metin büyük harf */
+}
+
+/* Satırlar ve hücreler */
+tbody td {
+    padding: 10px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333; /* Metin rengi */
+}
+
+/* Alternatif satır rengi */
+tbody tr:nth-child(odd) {
+    background-color: #e9f3f4; /* Açık gri */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff; /* Beyaz */
+}
+
+/* Hover efekti */
+tbody tr:hover {
+    background-color: #d6e8e9;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Kenarlık ve yuvarlama */
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+/* Butonlar için stil */
+button {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button.btn-danger {
+    background-color: #e74c3c; /* Kırmızı */
+    color: white;
+}
+
+button.btn-primary {
+    background-color: #3498db; /* Mavi */
+    color: white;
+}
+
+button.btn-success {
+    background-color: #2ecc71; /* Yeşil */
+    color: white;
+}
+
+/* Mobil uyumluluk */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto; /* Yatay kaydırma ekle */
+        white-space: nowrap; /* Hücrelerin yan yana kalmasını sağlar */
+    }
+
+    thead {
+        display: table-header-group;
+    }
+}
